@@ -13,7 +13,7 @@ function verificarPeso() {
             alertMessage.textContent = 'joaaaa ingresa algo xd🤬';
             alertMessage.style.display = 'block';
         }
-        return; // Detenemos la ejecución si no se ha ingresado un peso válido
+        return; // Deeetenemos la ejecución si no se ha ingresado un peso válido
     }
 
     pesoInput.disabled = true;
