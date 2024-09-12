@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Json perez jeiss</title>
+    <link rel="stylesheet" href="../css/styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Verifica tu Peso 😱 Miedo</h1>
+        <input type="number" id="pesoInput" placeholder="Ingresa tu peso en kg">
+        <button type="submit" onclick="verificarPeso()">Enviar</button>
+        <button onclick="habilitarInput(); location.reload();">Refresh</button>
+        <button id="toggleImage" onclick="toggleImage()" style="display:none;">Cambiar Imagen</button>
+        <img id="pesoImagen1" src="../recursos/img/1img.jpg" style="display:none;">
+        <img id="pesoImagen2" src="../recursos/img/2img.png" style="display:none;">
+        <audio id="pesoAudio" src="../recursos/img/uwaei.mp3" controls style="display:none;"></audio>
+        <p id="alertMessage" style="color: red; display: none;"></p>
+    </div>
+
+    <script src="../js/script.js"></script>
+</body>
+</html>

@@ -1,0 +1,82 @@
+body, html {
+    height: 100%;
+    margin: 0;
+    font-family: 'Arial', sans-serif;
+    background: linear-gradient(135deg, #70e1f5, #ffd194);
+    color: #333;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px; /* Added padding for better view on mobile */
+}
+
+.container {
+    width: 100%;
+    max-width: 400px; /* Ensures container is not too wide on large screens */
+    background-color: rgba(255, 255, 255, 0.9);
+    border-radius: 15px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+    padding: 20px;
+    margin: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+input, button {
+    width: 100%; /* Full width for better mobile responsiveness */
+    padding: 12px 20px;
+    margin: 10px 0;
+    border-radius: 5px;
+    border: none;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    transition: all 0.3s ease;
+    font-size: 16px;
+}
+
+input {
+    background-color: #ffffff;
+}
+
+button {
+    background-color: #007bff;
+    color: white;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #0056b3;
+    transform: scale(1.05);
+}
+
+button:disabled {
+    background-color: #cccccc;
+    cursor: not-allowed;
+}
+
+img {
+    width: 100%; /* Full width to adapt responsively */
+    max-height: 280px; /* Adjust max-height for mobile screens */
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    object-fit: cover; /* Ensures images are scaled correctly */
+}
+
+h1 {
+    margin-bottom: 20px;
+    color: #333;
+    font-weight: 300;
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
+}
+
+/* Media Queries for better responsive design */
+@media (max-width: 600px) {
+    .container {
+        margin: 10px;
+        padding: 15px;
+    }
+
+    input, button {
+        font-size: 14px;
+    }
+}
