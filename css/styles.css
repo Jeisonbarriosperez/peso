@@ -1,52 +1,69 @@
+/* General Styles */
 body, html {
     height: 100%;
     margin: 0;
     font-family: 'Arial', sans-serif;
-    background: linear-gradient(135deg, #70e1f5, #ffd194);
+    background: linear-gradient(135deg, #6dd5ed, #fddb92); /* Softer gradient for elegance */
     color: #333;
     display: flex;
     justify-content: center;
     align-items: center;
-    padding: 10px; /* Added padding for better view on mobile */
+    padding: 15px;
 }
 
 .container {
     width: 100%;
-    max-width: 400px; /* Ensures container is not too wide on large screens */
-    background-color: rgba(255, 255, 255, 0.9);
-    border-radius: 15px;
-    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
-    padding: 20px;
+    max-width: 450px; /* Increased width for larger interface */
+    background-color: rgba(255, 255, 255, 0.95); /* Slightly increased opacity */
+    border-radius: 25px; /* Softer edges */
+    box-shadow: 0 10px 25px rgba(0,0,0,0.2); /* Bolder shadow for a more premium look */
+    padding: 30px; /* Increased padding for more breathing room */
     margin: 20px;
     display: flex;
     flex-direction: column;
     align-items: center;
+    transition: all 0.3s ease;
+}
+
+.container:hover {
+    transform: translateY(-7px); /* More pronounced hover effect */
 }
 
 input, button {
-    width: 100%; /* Full width for better mobile responsiveness */
-    padding: 12px 20px;
-    margin: 10px 0;
-    border-radius: 5px;
+    width: 100%; 
+    padding: 16px 25px;
+    margin: 15px 0;
+    border-radius: 10px; /* Softer corners */
     border: none;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    box-shadow: 0 5px 12px rgba(0,0,0,0.15); /* Subtle shadow for depth */
     transition: all 0.3s ease;
-    font-size: 16px;
+    font-size: 18px; /* Slightly larger font size */
 }
 
 input {
-    background-color: #ffffff;
+    background-color: #f5f5f5; /* Softer input background */
+    border: 1px solid #ddd; /* Light border for inputs */
+}
+
+input:focus {
+    outline: none;
+    border: 1px solid #007bff; /* Border change on focus */
+    box-shadow: 0 0 8px rgba(0,123,255,0.5); /* Soft glow on focus */
 }
 
 button {
-    background-color: #007bff;
+    background-color: #007bff; /* Vibrant blue */
     color: white;
     cursor: pointer;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 1.2px;
+    transition: transform 0.3s ease;
 }
 
 button:hover {
     background-color: #0056b3;
-    transform: scale(1.05);
+    transform: scale(1.1); /* Slightly larger hover effect */
 }
 
 button:disabled {
@@ -55,28 +72,66 @@ button:disabled {
 }
 
 img {
-    width: 100%; /* Full width to adapt responsively */
-    max-height: 280px; /* Adjust max-height for mobile screens */
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-    object-fit: cover; /* Ensures images are scaled correctly */
+    width: 100%;
+    max-height: 300px;
+    border-radius: 15px; /* Rounded corners for the image */
+    box-shadow: 0 6px 14px rgba(0,0,0,0.1); /* Deeper shadow for a polished look */
+    object-fit: cover;
+    margin-bottom: 20px; /* Added space between image and content */
 }
 
 h1 {
-    margin-bottom: 20px;
+    margin-bottom: 30px; /* Larger spacing under the title */
     color: #333;
-    font-weight: 300;
-    text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
+    font-weight: 500; /* Slightly thicker font for better readability */
+    font-size: 32px; /* Increased font size */
+    text-align: center; /* Centered title */
+    text-shadow: 2px 2px 6px rgba(0,0,0,0.2); /* Softer shadow for elegance */
 }
 
-/* Media Queries for better responsive design */
+/* Additional Styling */
+p {
+    font-size: 16px;
+    line-height: 1.6;
+    color: #555;
+    text-align: center;
+    margin-bottom: 25px;
+}
+
+/* Button Styles for More Interactivity */
+button.primary {
+    background-color: #28a745; /* Green button for primary actions */
+}
+
+button.secondary {
+    background-color: #ffc107; /* Yellow button for secondary actions */
+}
+
+button.primary:hover {
+    background-color: #218838;
+}
+
+button.secondary:hover {
+    background-color: #e0a800;
+}
+
+/* Media Queries for Better Responsiveness */
 @media (max-width: 600px) {
     .container {
-        margin: 10px;
-        padding: 15px;
+        margin: 15px;
+        padding: 20px;
     }
 
     input, button {
-        font-size: 14px;
+        font-size: 16px;
+        padding: 14px 22px;
+    }
+
+    h1 {
+        font-size: 28px; /* Adjusted title size for smaller screens */
+    }
+
+    img {
+        max-height: 250px; /* Smaller image for mobile */
     }
 }
