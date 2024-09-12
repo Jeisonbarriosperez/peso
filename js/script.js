@@ -7,6 +7,15 @@ function verificarPeso() {
     const toggleBtn = document.getElementById('toggleImage');
     const alertMessage = document.getElementById('alertMessage'); // Asumimos que existe este elemento para mostrar alertas
 
+    // Validación para asegurarse de que el peso no esté vacío o no sea un número
+    if (isNaN(peso) || pesoInput.value === '') {
+        if (alertMessage) {
+            alertMessage.textContent = 'joaaaa ingresa algo xd🤬';
+            alertMessage.style.display = 'block';
+        }
+        return; // Detenemos la ejecución si no se ha ingresado un peso válido
+    }
+
     pesoInput.disabled = true;
 
     // Reiniciamos las visualizaciones
@@ -16,10 +25,10 @@ function verificarPeso() {
     toggleBtn.style.display = 'none';
     if (alertMessage) alertMessage.style.display = 'none'; // Esconder mensaje de alerta si está presente
 
-    if (peso <40) {
-        // Mostrar un mensaje de error si el peso es menor a 10
+    if (peso < 40) {
+        // Mostrar un mensaje de error si el peso es menor a 40
         if (alertMessage) {
-            alertMessage.textContent = 'Deja el viaje que tu no estas en desnutrición, e igresa un peso correcto🤬.';
+            alertMessage.textContent = 'Deja el viaje que tú no estás en desnutrición, e ingresa un peso correcto🤬.';
             alertMessage.style.display = 'block';
         }
         habilitarInput(); // Re-habilitamos la entrada para corregir el valor

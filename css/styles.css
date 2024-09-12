@@ -3,7 +3,7 @@ body, html {
     height: 100%;
     margin: 0;
     font-family: 'Arial', sans-serif;
-    background: linear-gradient(135deg, #6dd5ed, #fddb92); /* Softer gradient for elegance */
+    background-image: linear-gradient(62deg, #8EC5FC 0%, #E0C3FC 100%);
     color: #333;
     display: flex;
     justify-content: center;
@@ -13,106 +13,124 @@ body, html {
 
 .container {
     width: 100%;
-    max-width: 450px; /* Increased width for larger interface */
-    background-color: rgba(255, 255, 255, 0.95); /* Slightly increased opacity */
-    border-radius: 25px; /* Softer edges */
-    box-shadow: 0 10px 25px rgba(0,0,0,0.2); /* Bolder shadow for a more premium look */
-    padding: 30px; /* Increased padding for more breathing room */
-    margin: 20px;
+    max-width: 500px;
+    background-color: rgba(255, 255, 255, 0.2); /* Lowered opacity for more transparency */
+    border-radius: 30px; /* Softer edges */
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.25); /* Larger shadow for more depth */
+    padding: 40px 30px;
+    margin: 30px;
     display: flex;
     flex-direction: column;
     align-items: center;
-    transition: all 0.3s ease;
+    transition: all 0.5s ease;
+    backdrop-filter: blur(15px); /* Stronger blur for modern look */
+    border: 2px solid rgba(255, 255, 255, 0.2); /* Softer border with more transparency */
+    height: 600px; /* Increased height */
+    overflow: hidden; /* Ensures content stays inside the container */
+    position: relative; /* Ensure the content is positioned relative to the container */
 }
 
 .container:hover {
-    transform: translateY(-7px); /* More pronounced hover effect */
+    transform: translateY(-10px); /* More pronounced hover effect */
+    background-color: rgba(255, 255, 255, 0.85); /* Slightly less transparent on hover */
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3); /* Larger shadow on hover */
 }
 
 input, button {
     width: 100%; 
-    padding: 16px 25px;
-    margin: 15px 0;
-    border-radius: 10px; /* Softer corners */
+    padding: 10px 20px; /* Reduced padding to make inputs and buttons more compact */
+    margin: 10px 0; /* Reduced margin to minimize vertical space */
+    border-radius: 8px; /* Slightly reduced corner radius */
     border: none;
-    box-shadow: 0 5px 12px rgba(0,0,0,0.15); /* Subtle shadow for depth */
-    transition: all 0.3s ease;
-    font-size: 18px; /* Slightly larger font size */
+    box-shadow: 0 5px 12px rgba(0, 0, 0, 0.15);
+    transition: all 0.4s ease; /* Smoother transition for inputs and buttons */
+    font-size: 16px; /* Reduced font size for compactness */
+    opacity: 0.95; /* Slight transparency for inputs and buttons */
+    transform: scale(1); /* Default scale */
 }
 
 input {
-    background-color: #f5f5f5; /* Softer input background */
-    border: 1px solid #ddd; /* Light border for inputs */
+    background-color: rgba(245, 245, 245, 0.9); /* Transparent background for input */
+    border: 1px solid rgba(0, 0, 0, 0.1); /* Soft border */
 }
 
 input:focus {
     outline: none;
-    border: 1px solid #007bff; /* Border change on focus */
-    box-shadow: 0 0 8px rgba(0,123,255,0.5); /* Soft glow on focus */
+    border: 1px solid #007bff;
+    box-shadow: 0 0 12px rgba(0,123,255,0.5); /* Soft glow on focus */
+    opacity: 1; /* Full opacity on focus */
+    transform: scale(1.05); /* Slight scaling animation on focus */
 }
 
 button {
-    background-color: #007bff; /* Vibrant blue */
+    background-color: rgba(0, 123, 255, 0.9); /* Transparent button */
     color: white;
     cursor: pointer;
     font-weight: bold;
+    width: 30%;
     text-transform: uppercase;
-    letter-spacing: 1.2px;
-    transition: transform 0.3s ease;
+    letter-spacing: 1.1px; /* Slightly reduced letter spacing */
+    transition: transform 0.3s ease, background-color 0.3s ease; /* Smoother animations */
+    padding:8px 8px; /* More compact padding */
+    margin-bottom: -1%;
 }
 
 button:hover {
-    background-color: #0056b3;
-    transform: scale(1.1); /* Slightly larger hover effect */
+    background-color: rgba(0, 86, 179, 0.95); /* Slightly darker and less transparent on hover */
+    transform: scale(1.08); /* Larger hover effect */
 }
 
 button:disabled {
-    background-color: #cccccc;
+    background-color: rgba(204, 204, 204, 0.8);
     cursor: not-allowed;
 }
-
+audio{
+    margin-top:2%;
+}
 img {
     width: 100%;
-    max-height: 300px;
-    border-radius: 15px; /* Rounded corners for the image */
-    box-shadow: 0 6px 14px rgba(0,0,0,0.1); /* Deeper shadow for a polished look */
-    object-fit: cover;
-    margin-bottom: 20px; /* Added space between image and content */
+    max-height: 320px;
+    border-radius: 15px;
+    box-shadow: 0 6px 14px rgba(0, 0, 0, 0.1);
+    object-fit: cover; /* Ensures image fits properly without stretching */
+    display: block; /* Ensures images behave properly inside flex container */
+    margin-top:2%;
 }
 
 h1 {
-    margin-bottom: 30px; /* Larger spacing under the title */
+    margin-bottom: 30px;
     color: #333;
-    font-weight: 500; /* Slightly thicker font for better readability */
-    font-size: 32px; /* Increased font size */
-    text-align: center; /* Centered title */
-    text-shadow: 2px 2px 6px rgba(0,0,0,0.2); /* Softer shadow for elegance */
+    font-weight: 500;
+    font-size: 32px;
+    text-align: center;
+    text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.2);
+    opacity: 0.9;
 }
 
 /* Additional Styling */
 p {
     font-size: 16px;
     line-height: 1.6;
-    color: #555;
+    color: rgba(85, 85, 85, 0.9); /* Paragraph transparency */
     text-align: center;
     margin-bottom: 25px;
 }
 
 /* Button Styles for More Interactivity */
 button.primary {
-    background-color: #28a745; /* Green button for primary actions */
+    background-color: rgba(40, 167, 69, 0.9); /* Transparent green button */
 }
 
 button.secondary {
-    background-color: #ffc107; /* Yellow button for secondary actions */
+    background-color: rgba(255, 193, 7, 0.9); /* Transparent yellow button */
 }
 
 button.primary:hover {
-    background-color: #218838;
+    background-color: rgba(33, 136, 56, 0.95);
 }
 
 button.secondary:hover {
-    background-color: #e0a800;
+    background-color: rgba(224, 168, 0, 0.95);
 }
 
 /* Media Queries for Better Responsiveness */
@@ -120,18 +138,45 @@ button.secondary:hover {
     .container {
         margin: 15px;
         padding: 20px;
+        height: auto; /* Adjust height for smaller screens */
     }
 
     input, button {
-        font-size: 16px;
-        padding: 14px 22px;
+        font-size: 14px; /* Reduced font size for smaller screens */
+        padding: 12px 20px;
     }
 
     h1 {
-        font-size: 28px; /* Adjusted title size for smaller screens */
+        font-size: 28px;
     }
 
     img {
-        max-height: 250px; /* Smaller image for mobile */
+        max-height: 250px;
     }
+}
+/* Estilos personalizados para el contenedor de audio */
+.custom-audio {
+    width: 100%; /* Ajusta el tamaño al contenedor */
+    max-width: 300px; /* Puedes ajustar el tamaño que necesites */
+    background-color: #007bff; /* Fondo azul para el reproductor */
+    border-radius: 10px; /* Bordes redondeados */
+    padding: 10px; /* Espaciado interno */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Sombra para darle profundidad */
+}
+
+/* Personalización de los controles nativos de audio */
+.custom-audio::-webkit-media-controls-panel {
+    background-color: #007bff; /* Color de fondo de los controles en navegadores basados en WebKit */
+    border-radius: 10px;
+}
+
+.custom-audio::-webkit-media-controls-play-button,
+.custom-audio::-webkit-media-controls-volume-slider {
+    background-color: #fff; /* Color blanco para los botones */
+    border-radius: 50%;
+}
+
+.custom-audio::-webkit-media-controls-current-time,
+.custom-audio::-webkit-media-controls-time-remaining-display {
+    color: #fff; /* Cambia el color de los textos de tiempo */
 }
