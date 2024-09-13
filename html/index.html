@@ -2,24 +2,27 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
-    <title>Json perez jeison</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../css/styles.css">
+    <title>Peso Saludable</title>
 </head>
 <body>
     <div class="container">
-        <h1>Verifica tu Peso 😱 Miedo</h1>
-        <input type="number" id="pesoInput" placeholder="Ingresa tu peso en kg">
-        <button type="submit" onclick="verificarPeso()">Enviar</button>
-        <button onclick="habilitarInput(); location.reload();">Refresh</button>
-        <button id="toggleImage" onclick="toggleImage()" style="display:none;">Siguiente</button>
-        <img id="pesoImagen1" src="../recursos/img/2img.png" style="display:none;">
-        <img id="pesoImagen2" src="../recursos/img/3img.jpg" style="display:none;">
-        <audio id="pesoAudio" src="../recursos/img/uwaei.mp3" controls style="display:none;" class="custom-audio"></audio>
-
-
-        <p id="alertMessage" style="color: red; display: none;"></p>
+        <h1>Verifica tu Peso</h1>
+        <input type="number" id="weightInput" placeholder="Ingresa tu peso en kg">
+        <button onclick="checkWeight()" disabled>Enviar</button>
+        <button onclick="resetForm()" disabled>Reiniciar</button>
+        <button id="nextImage" onclick="nextImage()" disabled>Siguiente</button>
+        <div id="images" class="hide">
+            <img src="../recursos/img/imagen1.png" id="image1" class="show">
+            <img src="../recursos/img/imagen2.png" id="image2" class="hide">
+        </div>
+        <audio id="music" controls style="background-color: skyblue;" class="hide">
+            <source src="../recursos/img/glenda.mp3" type="audio/mp3">
+            Tu navegador no soporta audio HTML5.
+        </audio>
+        <div id="message"></div>
     </div>
-
     <script src="../js/script.js"></script>
 </body>
 </html>

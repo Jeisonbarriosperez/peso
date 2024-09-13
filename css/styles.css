@@ -1,186 +1,55 @@
-/* General Styles */
 body, html {
+    font-family: Arial, sans-serif;
+    text-align: center;
+    padding: 20px;
+    background-image: linear-gradient(0deg, #D9AFD9 0%, #97D9E1 100%);
     height: 100%;
-    margin: 0;
-    font-family: 'Arial', sans-serif;
-    background-image: linear-gradient(62deg, #8EC5FC 0%, #E0C3FC 100%);
-    color: #333;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 15px;
-    width: 100%;
 }
 
 .container {
-    width: 50%;
-    max-width: 100%;
-    background-color: rgba(255, 255, 255, 0.2); /* Lowered opacity for more transparency */
-    border-radius: 30px; /* Softer edges */
-    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.25); /* Larger shadow for more depth */
-    padding: 40px 30px;
-    margin: 5px;
-    display: flex;
+    max-width: 600px;
+    margin: 0 auto;
+    background-color: rgba(255, 255, 255, 0.3); /* Ajusta la transparencia aquí */
+    padding: 20px;
+    box-shadow: 0 10px 130px rgba(0, 0, 0, 1); /* Sombra más suave */
+    border-radius: 15px; /* Bordes redondos */
+    display: flex; 
     flex-direction: column;
     align-items: center;
-    transition: all 0.5s ease;
-    backdrop-filter: blur(15px); /* Stronger blur for modern look */
-    border: 2px solid rgba(255, 255, 255, 0.2); /* Softer border with more transparency */
-    height: 600px; /* Increased height */
-    overflow: hidden; /* Ensures content stays inside the container */
-    position: relative; /* Ensure the content is positioned relative to the container */
+    justify-content: center;
 }
 
-.container:hover {
-    transform: translateY(-10px); /* More pronounced hover effect */
-    background-color: rgba(255, 255, 255, 0.85); /* Slightly less transparent on hover */
-    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3); /* Larger shadow on hover */
-}
-
-input, button {
-    width: 100%; 
-    padding: 10px 20px; /* Reduced padding to make inputs and buttons more compact */
-    margin: 10px 0; /* Reduced margin to minimize vertical space */
-    border-radius: 8px; /* Slightly reduced corner radius */
-    border: none;
-    box-shadow: 0 5px 12px rgba(0, 0, 0, 0.15);
-    transition: all 0.4s ease; /* Smoother transition for inputs and buttons */
-    font-size: 16px; /* Reduced font size for compactness */
-    opacity: 0.95; /* Slight transparency for inputs and buttons */
-    transform: scale(1); /* Default scale */
-}
-
-input {
-    background-color: rgba(245, 245, 245, 0.9); /* Transparent background for input */
-    border: 1px solid rgba(0, 0, 0, 0.1); /* Soft border */
-}
-
-input:focus {
-    outline: none;
-    border: 1px solid #007bff;
-    box-shadow: 0 0 12px rgba(0,123,255,0.5); /* Soft glow on focus */
-    opacity: 1; /* Full opacity on focus */
-    transform: scale(1.05); /* Slight scaling animation on focus */
+input[type="number"] {
+    width: calc(100% - 20px);
+    padding: 10px;
+    margin-top: 10px;
 }
 
 button {
-    background-color: rgba(0, 123, 255, 0.9); /* Transparent button */
+    width: 50%;
+    padding: 10px;
+    margin-top: 10px;
+    background-color: #007BFF;
     color: white;
+    border: none;
+    border-radius: 5px;
     cursor: pointer;
-    font-weight: bold;
-    width: 30%;
-    text-transform: uppercase;
-    letter-spacing: 1.1px; /* Slightly reduced letter spacing */
-    transition: transform 0.3s ease, background-color 0.3s ease; /* Smoother animations */
-    padding: 8px 8px; /* More compact padding */
-    margin-bottom: -1%;
 }
 
 button:hover {
-    background-color: rgba(0, 86, 179, 0.95); /* Slightly darker and less transparent on hover */
-    transform: scale(1.08); /* Larger hover effect */
+    background-color: #0056b3;
 }
 
-button:disabled {
-    background-color: rgba(204, 204, 204, 0.8);
-    cursor: not-allowed;
+.hide {
+    display: none;
 }
-
-audio {
+img{
     margin-top: 2%;
+    margin-bottom: 2%;
+    height: 300px;
+    border-radius: 2%;
+}
+.show {
+    display: block;
 }
 
-img {
-    width: 100%;
-    max-height: 320px;
-    border-radius: 15px;
-    box-shadow: 0 6px 14px rgba(0, 0, 0, 0.1);
-    object-fit: cover; /* Ensures image fits properly without stretching */
-    display: block; /* Ensures images behave properly inside flex container */
-    margin-top: 2%;
-}
-
-h1 {
-    margin-bottom: 30px;
-    color: #333;
-    font-weight: 500;
-    font-size: 32px;
-    text-align: center;
-    text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.2);
-    opacity: 0.9;
-}
-
-/* Additional Styling */
-p {
-    font-size: 16px;
-    line-height: 1.6;
-    color: rgba(85, 85, 85, 0.9); /* Paragraph transparency */
-    text-align: center;
-    margin-bottom: 25px;
-}
-
-/* Button Styles for More Interactivity */
-button.primary {
-    background-color: rgba(40, 167, 69, 0.9); /* Transparent green button */
-}
-
-button.secondary {
-    background-color: rgba(255, 193, 7, 0.9); /* Transparent yellow button */
-}
-
-button.primary:hover {
-    background-color: rgba(33, 136, 56, 0.95);
-}
-
-button.secondary:hover {
-    background-color: rgba(224, 168, 0, 0.95);
-}
-
-/* Media Queries for Better Responsiveness */
-@media (hover: none) and (pointer: coarse) {
-    .container:hover {
-        transform: none;
-        background-color: rgba(255, 255, 255, 0.2);
-        box-shadow: 0 15px 30px rgba(0, 0, 0, 0.25);
-    }
-
-    button:hover {
-        background-color: rgba(0, 123, 255, 0.9);
-        transform: none;
-    }
-
-    button.primary:hover {
-        background-color: rgba(40, 167, 69, 0.9);
-    }
-
-    button.secondary:hover {
-        background-color: rgba(255, 193, 7, 0.9);
-    }
-}
-/**/
-/* Estilos personalizados para el contenedor de audio */
-.custom-audio {
-    width: 100%; /* Ajusta el tamaño al contenedor */
-    max-width: 300px; /* Puedes ajustar el tamaño que necesites */
-    background-color: #007bff; /* Fondo azul para el reproductor */
-    border-radius: 10px; /* Bordes redondeados */
-    padding: 10px; /* Espaciado interno */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Sombra para darle profundidad */
-}
-
-/* Personalización de los controles nativos de audio */
-.custom-audio::-webkit-media-controls-panel {
-    background-color: #007bff; /* Color de fondo de los controles en navegadores basados en WebKit */
-    border-radius: 10px;
-}
-
-.custom-audio::-webkit-media-controls-play-button,
-.custom-audio::-webkit-media-controls-volume-slider {
-    background-color: #fff; /* Color blanco para los botones */
-    border-radius: 50%;
-}
-
-.custom-audio::-webkit-media-controls-current-time,
-.custom-audio::-webkit-media-controls-time-remaining-display {
-    color: #fff; /* Cambia el color de los textos de tiempo */
-}

@@ -1,71 +1,74 @@
-function verificarPeso() {
-    const pesoInput = document.getElementById('pesoInput');
-    const peso = parseFloat(pesoInput.value); // Aseguramos que el valor se trate como un número
-    const imagen1 = document.getElementById('pesoImagen1');
-    const imagen2 = document.getElementById('pesoImagen2');
-    const audio = document.getElementById('pesoAudio');
-    const toggleBtn = document.getElementById('toggleImage');
-    const alertMessage = document.getElementById('alertMessage'); // Asumimos que existe este elemento para mostrar alertas
-
-    // Validación para asegurarse de que el peso no esté vacío o no sea un número
-    if (isNaN(peso) || pesoInput.value === '') {
-        if (alertMessage) {
-            alertMessage.textContent = 'joaaaa ingresa algo xd🤬';
-            alertMessage.style.display = 'block';
-        }
-        return; // Deeetenemos la ejecución si no se ha ingresado un peso válido
-    }
-
-    pesoInput.disabled = true;
-
-    // Reiniciamos las visualizaciones
-    imagen1.style.display = 'none';
-    imagen2.style.display = 'none';
-    audio.style.display = 'none';
-    toggleBtn.style.display = 'none';
-    if (alertMessage) alertMessage.style.display = 'none'; // Esconder mensaje de alerta si está presente
-
-    if (peso < 40) {
-        // Mostrar un mensaje de error si el peso es menor a 40
-        if (alertMessage) {
-            alertMessage.textContent = 'Deja el viaje que tú no estás en desnutrición, e ingresa un peso correcto🤬.';
-            alertMessage.style.display = 'block';
-        }
-        habilitarInput(); // Re-habilitamos la entrada para corregir el valor
-        return; // Detenemos la ejecución de la función aquí
-    }
-
-    if (peso >= 76) {
-        imagen1.style.display = 'block';
-        toggleBtn.style.display = 'block';
-        currentImage = 1;
-    } else {
-        audio.style.display = 'block';
-    }
-}
-
 let currentImage = 1;
 
-function toggleImage() {
-    const imagen1 = document.getElementById('pesoImagen1');
-    const imagen2 = document.getElementById('pesoImagen2');
+document.getElementById('weightInput').addEventListener('input', function() {
+    const weight = this.value.trim();
+    document.querySelector('button[onclick="checkWeight()"]').disabled = !weight;
+});
 
-    if (currentImage === 1) {
-        imagen1.style.display = 'none';
-        imagen2.style.display = 'block';
-        currentImage = 2;
+function checkWeight() {
+    const weight = document.getElementById('weightInput').value;
+    const images = document.getElementById('images');
+    const message = document.getElementById('message');
+    const music = document.getElementById('music');
+    const sendButton = document.querySelector('button[onclick="checkWeight()"]');
+    const resetButton = document.querySelector('button[onclick="resetForm()"]');
+    const nextButton = document.getElementById('nextImage');
+
+    if (weight >= 55) {
+        images.classList.remove('hide');
+        message.innerHTML = '';
+        music.classList.remove('hide');
+        // Intenta reproducir el audio y maneja la promesa
+        music.play().catch(error => {
+            console.error("Error al intentar reproducir el audio:", error);
+            message.innerHTML = 'Haga clic en "Enviar" para reproducir el audio.';
+        });
+    } else if (weight) {
+        images.classList.add('hide');
+        music.pause();
+        music.currentTime = 0;
+        music.classList.add('hide');
+        message.innerHTML = 'Esta en el peso correcto. Flaca, vos sos hermosa, y te mereces todo. Amarte es mi necesidad, mi necesidad😏.';
     } else {
-        imagen2.style.display = 'none';
-        imagen1.style.display = 'block';
-        currentImage = 1;
+        message.innerHTML = 'Por favor, ingresa tu peso.';
+        return; // Detén la ejecución si no hay peso ingresado
+    }
+
+    sendButton.disabled = true;
+    resetButton.disabled = false;
+    nextButton.disabled = false;
+    document.getElementById('weightInput').disabled = true;
+}
+
+
+function resetForm() {
+    document.getElementById('weightInput').value = '';
+    document.getElementById('weightInput').disabled = false;
+    document.getElementById('images').classList.add('hide');
+    document.getElementById('music').pause();
+    document.getElementById('music').currentTime = 0;
+    document.getElementById('music').classList.add('hide');
+    document.getElementById('message').innerHTML = '';
+    document.querySelector('button[onclick="checkWeight()"]').disabled = true;
+    document.querySelector('button[onclick="resetForm()"]').disabled = true;
+    document.getElementById('nextImage').disabled = true;
+}
+
+function nextImage() {
+    const image1 = document.getElementById('image1');
+    const image2 = document.getElementById('image2');
+
+    // Verifica qué imagen está actualmente visible y alterna
+    if (image1.classList.contains('show')) {
+        image1.classList.remove('show');
+        image1.classList.add('hide');
+        image2.classList.remove('hide');
+        image2.classList.add('show');
+    } else {
+        image2.classList.remove('show');
+        image2.classList.add('hide');
+        image1.classList.remove('hide');
+        image1.classList.add('show');
     }
 }
 
-function habilitarInput() {
-    const pesoInput = document.getElementById('pesoInput');
-    const enviarBtn = document.querySelector('button[type="submit"]');
-    pesoInput.disabled = false;
-    enviarBtn.disabled = false;
-    pesoInput.value = '';
-    pesoInput.focus();
-}
